@@ -1,23 +1,32 @@
 package com.collections.contactbook.database;
 
 import com.collections.contactbook.models.*;
+import com.collections.contactbook.utils.Utils;
 import org.springframework.stereotype.Component;
 
-import javax.xml.crypto.Data;
 import java.util.*;
 
 @Component
 public class Database {
     private static final Map<String, Contact> _contacts = new HashMap<>();
     private static final Map<String, Contact> _phoneNumbers = new HashMap<>();
+    private Utils _utils;
     public Database(){}
 
     public boolean containsPhoneNumber(String phoneNumber){
         return Database._phoneNumbers.containsKey(phoneNumber);
     }
 
+    public boolean validateEmail(String email){
+        return _utils.validateEmail(email);
+    }
+
+    public boolean validatePhone(String phone){
+        return _utils.validatePhone(phone);
+    }
+
     public boolean addContact(String name, String phoneNumber, String email){
-        if(containsPhoneNumber(phoneNumber))
+        if(containsPhoneNumber(phoneNumber) && validateEmail(email) && validatePhone(phoneNumber))
             return false;
         String newId = UUID.randomUUID().toString();
         while(Database._contacts.containsKey(newId)) newId = UUID.randomUUID().toString();
