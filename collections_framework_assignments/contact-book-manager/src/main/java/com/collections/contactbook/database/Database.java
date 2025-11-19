@@ -12,11 +12,11 @@ public class Database {
     private static final Map<String, Contact> _phoneNumbers = new HashMap<>();
     public Database(){}
 
-    boolean containsPhoneNumber(String phoneNumber){
+    public boolean containsPhoneNumber(String phoneNumber){
         return Database._phoneNumbers.containsKey(phoneNumber);
     }
 
-    boolean addContact(String name, String phoneNumber, String email){
+    public boolean addContact(String name, String phoneNumber, String email){
         if(containsPhoneNumber(phoneNumber))
             return false;
         String newId = UUID.randomUUID().toString();
@@ -27,29 +27,29 @@ public class Database {
         return true;
     }
 
-    List<Contact> getAllContacts(){
+    public List<Contact> getAllContacts(){
         return Database._contacts.values().stream().toList();
     }
 
-    Optional<Contact> getContactById(String id){
+    public Optional<Contact> getContactById(String id){
         if(!Database._contacts.containsKey(id)){
             return Optional.empty();
         }
         return Optional.of(Database._contacts.get(id));
     }
 
-    void printContact(List<Contact> contacts){
+    public void printContact(List<Contact> contacts){
         contacts.forEach(Contact::print);
     }
 
-    Optional<Contact> getContactByPhone(String phone) {
+    public Optional<Contact> getContactByPhone(String phone) {
         if(!Database._phoneNumbers.containsKey(phone)){
             return Optional.empty();
         }
         return Optional.of(Database._phoneNumbers.get(phone));
     }
 
-    boolean deleteContact(String id){
+    public boolean deleteContact(String id){
         Optional<Contact> c = getContactById(id);
         if(c.isEmpty())
             return false;
