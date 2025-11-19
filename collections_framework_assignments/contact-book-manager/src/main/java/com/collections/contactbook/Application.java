@@ -17,6 +17,10 @@ import org.springframework.stereotype.Service;
 public class Application implements CommandLineRunner {
     private ContactService _contactService;
 
+    Application(ContactService contactService){
+        this._contactService = contactService;
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }

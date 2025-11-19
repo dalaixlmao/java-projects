@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class ContactService {
     private Database _db;
-    public ContactService(){}
+    public ContactService(Database db){ this._db = db;}
 
     public void addContact(String name, String phoneNumber, String email){
         boolean res = this._db.addContact(name, phoneNumber, email);

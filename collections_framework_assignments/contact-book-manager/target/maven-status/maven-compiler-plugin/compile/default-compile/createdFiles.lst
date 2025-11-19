@@ -1,0 +1,5 @@
+com/collections/contactbook/Application.class
+com/collections/contactbook/services/ContactService.class
+com/collections/contactbook/database/Database.class
+com/collections/contactbook/utils/Utils.class
+com/collections/contactbook/models/Contact.class

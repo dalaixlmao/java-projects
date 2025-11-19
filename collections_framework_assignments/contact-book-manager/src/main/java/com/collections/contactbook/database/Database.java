@@ -11,7 +11,7 @@ public class Database {
     private static final Map<String, Contact> _contacts = new HashMap<>();
     private static final Map<String, Contact> _phoneNumbers = new HashMap<>();
     private Utils _utils;
-    public Database(){}
+    public Database(Utils utils){this._utils = utils;}
 
     public boolean containsPhoneNumber(String phoneNumber){
         return Database._phoneNumbers.containsKey(phoneNumber);
