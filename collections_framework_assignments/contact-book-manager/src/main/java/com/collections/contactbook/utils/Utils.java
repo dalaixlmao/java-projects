@@ -1,8 +1,11 @@
 package com.collections.contactbook.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class Utils  {
     private static final String _emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
     private static final String _phoneNumberRegex = "^\\d{10}$";
