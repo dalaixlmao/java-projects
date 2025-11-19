@@ -12,7 +12,7 @@ public class ContactService {
     private Database _db;
     public ContactService(){}
 
-    void addContact(String name, String phoneNumber, String email){
+    public void addContact(String name, String phoneNumber, String email){
         boolean res = this._db.addContact(name, phoneNumber, email);
         if(res){
             Optional<Contact> c = this._db.getContactByPhone(phoneNumber);
@@ -26,12 +26,12 @@ public class ContactService {
         }
     }
 
-    void viewAllContacts(){
+    public void viewAllContacts(){
         List<Contact> contacts = _db.getAllContacts();
         _db.printContact(contacts);
     }
 
-    void searchContacts(String phoneNumber){
+    public void searchContacts(String phoneNumber){
         Optional<Contact> c = _db.getContactByPhone(phoneNumber);
         if(c.isEmpty()){
             System.out.println("No contact exist with phone number "+phoneNumber);
@@ -41,7 +41,7 @@ public class ContactService {
         c.get().print();
     }
 
-    void deleteContact(String id){
+    public void deleteContact(String id){
         boolean res = _db.deleteContact(id);
         if(res){
             System.out.println("Contact deleted successfully!");
