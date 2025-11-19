@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class Utils  {
     private static final String _emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
     private static final String _phoneNumberRegex = "^\\d{10}$";
-    Utils(){super();}
+    Utils(){}
 
     public boolean validateEmail(String email){
         Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(_emailRegex, Pattern.CASE_INSENSITIVE);
