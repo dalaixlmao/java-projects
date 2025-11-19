@@ -30,4 +30,13 @@ public class Contact {
     public void setName(String name) { this._name = name; }
     public void setPhoneNumber(String phoneNumber) { this._phoneNumber = phoneNumber; }
     public void setEmail(String email) { this._email = email; }
+
+    public void print(){
+        System.out.println("\n----------------------------------");
+        System.out.println("ID = "+this._id);
+        System.out.println("Name = "+this._name);
+        System.out.println("Email = "+ this._email);
+        System.out.println("Phone Number = "+this._phoneNumber);
+        System.out.println("----------------------------------\n");
+    }
 }
