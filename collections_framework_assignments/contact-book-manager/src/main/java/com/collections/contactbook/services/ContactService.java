@@ -9,6 +9,12 @@ import java.util.Optional;
 
 @Service
 public class ContactService {
+    // ✅ EXCELLENT: This class is well-designed! Service layer implemented correctly
+    // - Proper dependency injection
+    // - Good use of Optional
+    // - Clear method names
+    // - Delegates to Database layer appropriately
+    // Only minor improvement: remove underscore prefix from field name
     private Database _db;
     public ContactService(Database db){ this._db = db;}
 
