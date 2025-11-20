@@ -3,29 +3,23 @@ package com.collections.contactbook;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-// TODO: Import Scanner for user input
-// TODO: Import HashMap for storing contacts
-// TODO: Import other necessary classes
+import com.collections.contactbook.services.ContactService;
+import java.util.Scanner;
+import org.springframework.stereotype.Service;
 
 /**
  * Contact Book Manager - Manages contacts using Collections
  *
- * ASSIGNMENT REQUIREMENTS:
- * 1. Create a Contact class with: name, phoneNumber, email
- * 2. Use HashMap<String, Contact> to store contacts (key = phone number)
- * 3. Implement 5 operations: Add, View All, Search, Delete, Exit
- * 4. Validate inputs:
- *    - Phone: exactly 10 digits
- *    - Email: must contain '@'
- *    - Name: cannot be empty
- * 5. Maximum 100 contacts allowed
- * 6. Prevent duplicate phone numbers
- *
- * COACH EVALUATION: 5/100 - NOT STARTED
- * See EVALUATION.md for detailed feedback
+ * TODO: Implement the required functionality for this assignment.
+ * Refer to the assignment markdown file for detailed requirements.
  */
 @SpringBootApplication
 public class Application implements CommandLineRunner {
+    private ContactService _contactService;
+
+    Application(ContactService contactService){
+        this._contactService = contactService;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -33,128 +27,63 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Welcome to Contact Book Manager!");
+        System.out.println("Application started!");
 
-        // TODO STEP 1: Create ContactBookManager instance
-        // ContactBookManager manager = new ContactBookManager();
-
-        // TODO STEP 2: Create Scanner for user input
-        // Scanner scanner = new Scanner(System.in);
-
-        // TODO STEP 3: Create a while loop for menu
-        // boolean running = true;
-        // while (running) {
-
-        // TODO STEP 4: Display menu
-        // System.out.println("\n1. Add Contact");
-        // System.out.println("2. View All Contacts");
-        // System.out.println("3. Search Contact");
-        // System.out.println("4. Delete Contact");
-        // System.out.println("5. Exit");
-        // System.out.print("Enter your choice: ");
-
-        // TODO STEP 5: Read user choice
-        // int choice = scanner.nextInt();
-        // scanner.nextLine(); // Clear buffer
-
-        // TODO STEP 6: Implement switch statement for menu options
-        // switch (choice) {
-        //     case 1: // Add Contact
-        //         // Read name, phone, email
-        //         // Validate inputs
-        //         // Create Contact object
-        //         // Call manager.addContact()
-        //         break;
-        //     case 2: // View All Contacts
-        //         // Call manager.viewAllContacts()
-        //         break;
-        //     case 3: // Search Contact
-        //         // Read phone number
-        //         // Call manager.searchContact()
-        //         break;
-        //     case 4: // Delete Contact
-        //         // Read phone number
-        //         // Call manager.deleteContact()
-        //         break;
-        //     case 5: // Exit
-        //         // running = false;
-        //         break;
-        //     default:
-        //         // System.out.println("Invalid choice!");
+        // TODO MISSING: Add menu display as per assignment requirement
+        // Assignment expects a numbered menu like this:
+        // private void displayMenu() {
+        //     System.out.println("\n=== Contact Book Manager ===");
+        //     System.out.println("1. Add Contact");
+        //     System.out.println("2. View All Contacts");
+        //     System.out.println("3. Search Contact");
+        //     System.out.println("4. Delete Contact");
+        //     System.out.println("5. Exit");
+        //     System.out.print("Enter your choice: ");
         // }
 
-        // TODO STEP 7: Close scanner
-        // scanner.close();
-
-        // TODO STEP 8: Create Contact.java class in this package
-        /*
-         * public class Contact {
-         *     private String name;
-         *     private String phoneNumber;
-         *     private String email;
-         *
-         *     // Constructor with validation
-         *     // Getters and setters
-         *     // toString() method
-         *     // equals() and hashCode() based on phoneNumber
-         * }
-         */
-
-        // TODO STEP 9: Create ContactBookManager.java class
-        /*
-         * public class ContactBookManager {
-         *     private HashMap<String, Contact> contacts;
-         *     private static final int MAX_CONTACTS = 100;
-         *
-         *     public ContactBookManager() {
-         *         contacts = new HashMap<>();
-         *     }
-         *
-         *     public boolean addContact(Contact contact) {
-         *         // Check if phone already exists
-         *         // Check if max capacity reached
-         *         // Add to HashMap
-         *         // Return success/failure
-         *     }
-         *
-         *     public void viewAllContacts() {
-         *         // Check if empty
-         *         // Loop through HashMap.values()
-         *         // Display each contact
-         *     }
-         *
-         *     public Contact searchContact(String phoneNumber) {
-         *         // Use HashMap.get(phoneNumber)
-         *         // Return contact or null
-         *     }
-         *
-         *     public boolean deleteContact(String phoneNumber) {
-         *         // Check if exists
-         *         // Use HashMap.remove(phoneNumber)
-         *         // Return success/failure
-         *     }
-         * }
-         */
-
-        // TODO STEP 10: Add input validation methods
-        /*
-         * private static boolean isValidPhone(String phone) {
-         *     return phone != null && phone.matches("\\d{10}");
-         * }
-         *
-         * private static boolean isValidEmail(String email) {
-         *     return email != null && email.contains("@");
-         * }
-         *
-         * private static boolean isValidName(String name) {
-         *     return name != null && !name.trim().isEmpty();
-         * }
-         */
-
-        System.out.println("\n⚠️  ASSIGNMENT NOT IMPLEMENTED!");
-        System.out.println("📋 See EVALUATION.md for detailed requirements");
-        System.out.println("📊 Current Grade: 5/100");
-        System.out.println("🎯 Follow the TODO steps above to complete the assignment");
-        System.out.println("\n💡 Start by creating Contact.java and ContactBookManager.java");
+        // TODO MISSING: Add try-catch for exception handling
+        // Scanner operations can throw InputMismatchException
+        Scanner scanner = new Scanner(System.in);
+        while(true){
+            // ❌ ISSUE: Assignment expects numeric input (1-5), not word commands
+            // Current: user types "add", "view", etc.
+            // Expected: user types 1, 2, 3, 4, or 5
+            //
+            // TODO FIX: Change to:
+            // int choice = scanner.nextInt();
+            // scanner.nextLine(); // clear buffer
+            // switch(choice) {
+            //     case 1: // Add
+            //     case 2: // View
+            //     case 3: // Search
+            //     case 4: // Delete
+            //     case 5: // Exit
+            //     default: // Invalid
+            // }
+            String command = scanner.next();
+            if(command.equalsIgnoreCase("add")){
+                // TODO IMPROVEMENT: Add input validation before calling service
+                // Check if name is not empty, phone is 10 digits, email contains @
+                String name, phoneNumber, email;
+                name = scanner.next();
+                phoneNumber = scanner.next();
+                email = scanner.next();
+                _contactService.addContact(name, phoneNumber, email);
+            }else if(command.equalsIgnoreCase("view")){
+                _contactService.viewAllContacts();
+            }else if(command.equalsIgnoreCase("search")){
+                String phone = scanner.next();
+                _contactService.searchContacts(phone);
+            }else if(command.equalsIgnoreCase("delete")){
+                String id = scanner.next();
+                _contactService.deleteContact(id);
+            }else if(command.equalsIgnoreCase("exit")){
+                System.out.println("Exiting...");
+                break;
+            }else{
+                System.out.println("Wrong command try again!");
+            }
+        }
+        // TODO IMPROVEMENT: Add scanner.close() in finally block to prevent resource leak
     }
 }
